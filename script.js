@@ -20,8 +20,19 @@ document.getElementById("minusBtnEconomy").addEventListener("click", function(){
 
 // eventlistener for book now button
 document.getElementById("bookNow").addEventListener("click", function(){
+    
+    const firstTickets = parseFloat(document.getElementById("inputFieldFirstClass").value);
+    document.getElementById("firstTickets").innerText = firstTickets;
+
+    const secondTickets = parseFloat(document.getElementById("inputFieldEconomy").value);
+    document.getElementById("secondTickets").innerText = secondTickets;
+
+    const totalTickets = firstTickets+secondTickets;
+    document.getElementById("totalTickets").innerText = totalTickets;
+
     const totalFinal = parseFloat(document.getElementById("grandTotal").innerText);
     document.getElementById("grandBook").innerText = totalFinal;
+
     document.getElementById("beforeBook").style.display = "none";
     document.getElementById("afterBook").style.display = "block";
 })
