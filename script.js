@@ -18,26 +18,6 @@ document.getElementById("minusBtnEconomy").addEventListener("click", function(){
     grandTotal();
 })
 
-// eventlistener for book now button
-document.getElementById("bookNow").addEventListener("click", function(){
-    
-    const firstTickets = parseFloat(document.getElementById("inputFieldFirstClass").value);
-    document.getElementById("firstTickets").innerText = firstTickets;
-
-    const secondTickets = parseFloat(document.getElementById("inputFieldEconomy").value);
-    document.getElementById("secondTickets").innerText = secondTickets;
-
-    const totalTickets = firstTickets+secondTickets;
-    document.getElementById("totalTickets").innerText = totalTickets;
-
-    const totalFinal = parseFloat(document.getElementById("grandTotal").innerText);
-    document.getElementById("grandBook").innerText = totalFinal;
-
-    document.getElementById("beforeBook").style.display = "none";
-    document.getElementById("afterBook").style.display = "block";
-})
-
-
 //function for handling product quantity
 function productQuantity(isIncrease, className){
     const getInput = parseFloat(document.getElementById("inputField"+className).value);
@@ -50,7 +30,6 @@ function productQuantity(isIncrease, className){
     }
     document.getElementById("inputField"+className).value = getQuantity;
 }
-
 
 //function for calculating subtotal vat and grandtotal
 function grandTotal(){
@@ -70,3 +49,27 @@ function grandTotal(){
     const grandTotal = subTotal + vat;
     document.getElementById("grandTotal").innerText = grandTotal;
 }
+
+// eventlistener for book now button
+document.getElementById("bookNow").addEventListener("click", function(){
+    
+    //for showing first class tickets quantity
+    const firstTickets = parseFloat(document.getElementById("inputFieldFirstClass").value);
+    document.getElementById("firstTickets").innerText = firstTickets;
+
+    //for showing second class tickets quantity
+    const secondTickets = parseFloat(document.getElementById("inputFieldEconomy").value);
+    document.getElementById("secondTickets").innerText = secondTickets;
+
+    //for showing total tickets quantity
+    const totalTickets = firstTickets+secondTickets;
+    document.getElementById("totalTickets").innerText = totalTickets;
+
+    //for showing total cost
+    const totalFinal = parseFloat(document.getElementById("grandTotal").innerText);
+    document.getElementById("grandBook").innerText = totalFinal;
+
+    //displaying confirmation section
+    document.getElementById("beforeBook").style.display = "none";
+    document.getElementById("afterBook").style.display = "block";
+})
